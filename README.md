@@ -1,4 +1,4 @@
-# Wiren Board - Home Assistant geteway
+# Wiren Board - Home Assistant gateway
 
 Gateway to connect [Wiren Board](https://wirenboard.com/) to [Home Assistant](http://home-assistant.io) 
 with [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery).
@@ -10,6 +10,8 @@ with [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery).
 
 
 ## Installation and configuration
+
+Install directly to Wiren Board 8.
 
 ### Requirements
 
@@ -66,6 +68,13 @@ NOTE: birth_message/will_message are needed to resend all devices after Home Ass
 python3 wb-hass-gw.py -c /etc/wb-hass-gw.yaml
 ```
 
+systemctl/systemd
+```
+cp /opt/wb-hass-gw-master/wb-hass-gw.service /etc/systemd/system/wb-hass-gw.service
+systemctl enable wb-hass-gw.service
+systemctl start wb-hass-gw.service
+systemctl status wb-hass-gw.service
+```
 
 ## Full config with default values
 ```yaml

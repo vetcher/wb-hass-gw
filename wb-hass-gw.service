@@ -1,0 +1,12 @@
+[Unit]
+Description=Wiren Board to Home Assistant gateway (unofficial)
+After=mosquitto.service
+After=wb-init.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/wb-hass-gw-master
+ExecStart=/opt/wb-hass-gw-master/.venv/bin/python3 wb-hass-gw.py -c /etc/wb-hass-gw.yaml
+
+[Install]
+WantedBy=multi-user.target
