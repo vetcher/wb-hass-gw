@@ -15,20 +15,25 @@ with [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery).
 
 * Linux
 * Python >= 3.6
+* `virtualenv` for python
 
-NOTE: **wb-hass-gw**  **CAN'T** be installed directly to Wiren Board, because there is Python 3.5 on it.
+NOTE: **wb-hass-gw**  **CAN'T** be installed directly to Wiren Board 7, because there is Python 3.5 on it.
 
 ### Installing:
 
 ```shell script
-cd /opt
-git clone https://github.com/Hacker-CB/wb-hass-gw
-cd wb-hass-gw
+wget https://github.com/vetcher/wb-hass-gw/archive/refs/heads/master.zip && unzip master.zip -d /opt && rm master.zip
+cd /opt/wb-hass-gw-master
 virtualenv -p python3 .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
 ### Configuring wb-hass-gw
+
+```shell script
+touch /etc/wb-hass-gw.yaml
+```
 
 ```yaml
 wirenboard:
@@ -58,7 +63,7 @@ NOTE: birth_message/will_message are needed to resend all devices after Home Ass
 
 ### Run 
 ```shell script
-python wb-hass-gw.py -c /etc/wb-hass-gw.yaml
+python3 wb-hass-gw.py -c /etc/wb-hass-gw.yaml
 ```
 
 
